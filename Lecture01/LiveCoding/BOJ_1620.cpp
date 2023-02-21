@@ -5,7 +5,7 @@
 using namespace std;
 
 int main() {
-	// ì…ì¶œë ¥ ì†ë„ í–¥ìƒ
+	// ÀÔÃâ·Â ¼Óµµ Çâ»ó
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
 
@@ -14,7 +14,7 @@ int main() {
 	map<int, string> num;
 	map<string, int> name;
 
-	//ì…ë ¥ & ì—°ì‚°
+	//ÀÔ·Â & ¿¬»ê
 	cin >> n >> m;
 	for (int i = 1; i <= n; i++) {
 		cin >> input;
@@ -22,7 +22,7 @@ int main() {
 		name[input] = i;
 	}
 
-	//ì¶œë ¥
+	//Ãâ·Â
 	for (int i = 0; i < m; i++) {
 		cin >> input;
 		if (isdigit(input[0])) {
