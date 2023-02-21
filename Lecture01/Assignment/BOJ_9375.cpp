@@ -30,11 +30,11 @@ int clothes(const int& n) {
 int main() {
 	int t, n;
 
-	//ìž…ë ¥
+	//ÀÔ·Â
 	cin >> t;
 	for (int i = 0; i < t; i++) {
 		cin >> n;
-		//ì—°ì‚° & ì¶œë ¥
+		//¿¬»ê & Ãâ·Â
 		cout << clothes(n) << "\n";
 	}
 
