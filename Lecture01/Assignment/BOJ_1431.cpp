@@ -26,17 +26,17 @@ bool cmp(const string& a, const string& b) {
 int main() {
 	int n;
 
-	//ÀÔ·Â
+	//ìž…ë ¥
 	cin >> n;
 	vector<string> serial_num(n);
 	for (int i = 0; i < n; i++) {
 		cin >> serial_num[i];
 	}
 
-	//¿¬»ê
+	//ì—°ì‚°
 	sort(serial_num.begin(), serial_num.end(), cmp);
 
-	//Ãâ·Â
+	//ì¶œë ¥
 	for (auto iter : serial_num) {
 		cout << iter << '\n';
 	}
