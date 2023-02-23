@@ -14,17 +14,17 @@ bool cmp(const pair<int, int>& p1, const pair<int, int>& p2) {
 int main() {
 	int n, x, y;
 
-	//ÀÔ·Â
+	//ìž…ë ¥
 	cin >> n;
 	vector<pair<int, int>> point(n);
 	for (int i = 0; i < n; i++) {
 		cin >> point[i].first >> point[i].second;
 	}
 
-	//¿¬»ê
+	//ì—°ì‚°
 	sort(point.begin(), point.end(), cmp);
 
-	//Ãâ·Â
+	//ì¶œë ¥
 	for (int i = 0; i < n; i++) {
 		cout << point[i].first << " " << point[i].second << "\n";
 	}
