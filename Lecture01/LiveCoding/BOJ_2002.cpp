@@ -23,7 +23,7 @@ int main() {
 	map<string, int> order_in;
 	vector<int> order_out;
 
-	//ÀÔ·Â
+	//ìž…ë ¥
 	cin >> n;
 	for (int i = 0; i < n; i++) {
 		cin >> input;
@@ -34,7 +34,7 @@ int main() {
 		order_out.push_back(order_in[input]);
 	}
 
-	//¿¬»ê & Ãâ·Â
+	//ì—°ì‚° & ì¶œë ¥
 	cout << overtake(n, order_out) << '\n';
 
 	return 0;
