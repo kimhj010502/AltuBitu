@@ -18,17 +18,17 @@ long long int tip(vector<int>& people) {
 int main() {
 	int n;
 
-	//ÀÔ·Â
+	//ìž…ë ¥
 	cin >> n;
 	vector<int> people(n);
 	for (int i = 0; i < n; i++) {
 		cin >> people[i];
 	}
 
-	//¿¬»ê
+	//ì—°ì‚°
 	sort(people.rbegin(), people.rend());
 	
-	//Ãâ·Â
+	//ì¶œë ¥
 	cout << tip(people);
 
 	return 0;
