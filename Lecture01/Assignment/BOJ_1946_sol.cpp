@@ -7,7 +7,7 @@ using namespace std;
 typedef pair<int, int> ci;
 
 int maxEmploy(vector<ci>& candidates) {
-	int cnt = 1, highest_rank = candidates[0].second; //first°¡ °¡Àå ³ôÀº »ç¶÷ÀÇ ¸éÁ¢ ½É»ç Á¡¼ö
+	int cnt = 1, highest_rank = candidates[0].second; //firstê°€ ê°€ì¥ ë†’ì€ ì‚¬ëŒì˜ ë©´ì ‘ ì‹¬ì‚¬ ì ìˆ˜
 	for (int i = 1; i < candidates.size(); i++) {
 		if (highest_rank > candidates[i].second) {
 			highest_rank = candidates[i].second;
@@ -20,7 +20,7 @@ int maxEmploy(vector<ci>& candidates) {
 int main() {
 	int t, n, cnt;
 
-	//ÀÔ·Â
+	//ì…ë ¥
 	cin >> t;
 	while (t--) {
 		cin >> n;
@@ -28,9 +28,9 @@ int main() {
 		for (int i = 0; i < n; i++) {
 			cin >> candidates[i].first >> candidates[i].second;
 		}
-		//¿¬»ê
-		sort(candidates.begin(), candidates.end()); //first ¸ÕÀú Á¤·ÄÇÑ ÈÄ second·Î Á¤·ÄÇÔ
-		//Ãâ·Â
+		//ì—°ì‚°
+		sort(candidates.begin(), candidates.end()); //first ë¨¼ì € ì •ë ¬í•œ í›„ secondë¡œ ì •ë ¬í•¨
+		//ì¶œë ¥
 		cout << maxEmploy(candidates) << "\n";
 	}
 

@@ -7,11 +7,11 @@ int main() {
 	int t, n;
 	string outfit, outfit_type;
 
-	//ÀÔ·Â
+	//ìž…ë ¥
 	cin >> t;
 	while (t--) {
 		int ans = 1;
-		map<string, int> clothes; //¿ÊÀÇ Á¾·ùº¸´Ù °³¼ö°¡ Áß¿äÇÔ
+		map<string, int> clothes; //ì˜·ì˜ ì¢…ë¥˜ë³´ë‹¤ ê°œìˆ˜ê°€ ì¤‘ìš”í•¨
 		cin >> n;
 		while (n--) {
 			cin >> outfit >> outfit_type;
