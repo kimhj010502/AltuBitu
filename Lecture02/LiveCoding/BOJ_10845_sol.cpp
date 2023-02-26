@@ -1,7 +1,5 @@
 ﻿#include <iostream>
-#include <vector>
-
-#define MAX_SIZE 10000
+#include <queue>
 
 using namespace std;
 
@@ -12,9 +10,7 @@ int main() {
 	int n;
 	cin >> n;
 
-	vector<int> arr(MAX_SIZE);
-	int top = -1;
-
+	queue<int> q;
 	string input;
 	int num;
 
@@ -23,33 +19,37 @@ int main() {
 
 		if (input == "push") {
 			cin >> num;
-			arr[++top] = num;
+			q.push(num);
 		}
 		else if (input == "pop") {
-			if (top == -1) {
+			if (q.empty()) {
 				cout << -1 << '\n';
 			}
 			else {
-				cout << arr[top--] << '\n';
+				cout << q.front() << '\n';
+				q.pop();
 			}
 		}
 		else if (input == "size") {
-			cout << top + 1 << '\n';
+			cout << q.size() << '\n';
 		}
 		else if (input == "empty") {
-			if (top == -1) {
-				cout << 1 << '\n';
-			}
-			else {
-				cout << 0 << '\n';
-			}
+			cout << q.empty() << '\n';
 		}
-		else if (input == "top") {
-			if (top == -1) {
+		else if (input == "front") {
+			if (q.empty()) {
 				cout << -1 << '\n';
 			}
 			else {
-				cout << arr[top] << '\n';
+				cout << q.front() << '\n';
+			}
+		}
+		else if (input == "back") {
+			if (q.empty()) {
+				cout << -1 << '\n';
+			}
+			else {
+				cout << q.back() << '\n';
 			}
 		}
 	}

@@ -13,7 +13,7 @@ int main() {
 	cin >> n;
 
 	vector<int> arr(MAX_SIZE);
-	int top = -1;
+	int front = 0, rear = 0;
 
 	string input;
 	int num;
@@ -23,33 +23,43 @@ int main() {
 
 		if (input == "push") {
 			cin >> num;
-			arr[++top] = num;
+			rear = (rear + 1) % MAX_SIZE;
+			arr[rear] = num;
 		}
 		else if (input == "pop") {
-			if (top == -1) {
+			if (front == rear) {
 				cout << -1 << '\n';
 			}
 			else {
-				cout << arr[top--] << '\n';
+				cout << arr[(front + 1) % MAX_SIZE] << '\n';
+				front = (front + 1) % MAX_SIZE;
 			}
 		}
 		else if (input == "size") {
-			cout << top + 1 << '\n';
+			cout << rear - front << '\n';
 		}
 		else if (input == "empty") {
-			if (top == -1) {
+			if (front == rear) {
 				cout << 1 << '\n';
 			}
 			else {
 				cout << 0 << '\n';
 			}
 		}
-		else if (input == "top") {
-			if (top == -1) {
+		else if (input == "front") {
+			if (front == rear) {
 				cout << -1 << '\n';
 			}
 			else {
-				cout << arr[top] << '\n';
+				cout << arr[(front + 1) % MAX_SIZE] << '\n';
+			}
+		}
+		else if (input == "back") {
+			if (front == rear) {
+				cout << -1 << '\n';
+			}
+			else {
+				cout << arr[rear] << '\n';
 			}
 		}
 	}

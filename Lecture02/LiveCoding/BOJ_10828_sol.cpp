@@ -1,7 +1,5 @@
 ﻿#include <iostream>
-#include <vector>
-
-#define MAX_SIZE 10000
+#include <stack>
 
 using namespace std;
 
@@ -12,9 +10,7 @@ int main() {
 	int n;
 	cin >> n;
 
-	vector<int> arr(MAX_SIZE);
-	int top = -1;
-
+	stack<int> s;
 	string input;
 	int num;
 
@@ -23,33 +19,29 @@ int main() {
 
 		if (input == "push") {
 			cin >> num;
-			arr[++top] = num;
+			s.push(num);
 		}
 		else if (input == "pop") {
-			if (top == -1) {
+			if (s.empty()) {
 				cout << -1 << '\n';
 			}
 			else {
-				cout << arr[top--] << '\n';
+				cout << s.top() << '\n';
+				s.pop();
 			}
 		}
 		else if (input == "size") {
-			cout << top + 1 << '\n';
+			cout << s.size() << '\n';
 		}
 		else if (input == "empty") {
-			if (top == -1) {
-				cout << 1 << '\n';
-			}
-			else {
-				cout << 0 << '\n';
-			}
+			cout << s.empty() << '\n';
 		}
 		else if (input == "top") {
-			if (top == -1) {
+			if (s.empty()) {
 				cout << -1 << '\n';
 			}
 			else {
-				cout << arr[top] << '\n';
+				cout << s.top() << '\n';
 			}
 		}
 	}
