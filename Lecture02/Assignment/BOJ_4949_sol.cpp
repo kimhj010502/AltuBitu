@@ -4,7 +4,8 @@
 
 using namespace std;
 
-string check(string& input, stack<char>& s) {
+string check(string& input) {
+	stack<char> s;
 	for (int i = 0; i < input.length(); i++) {
 		char w = input[i];
 		switch (w) {
@@ -45,13 +46,13 @@ int main() {
 	while (true) {
 		//입력
 		getline(cin, input);
-		stack<char> s;
+		
 		if (input == ".") {
 			break;
 		}
 
 		//연산 & 출력
-		cout << check(input, s) << "\n";
+		cout << check(input) << "\n";
 	}
 
 	return 0;

@@ -12,19 +12,15 @@ vector<int> josephus(const int& n, const int& k) {
 		num.push(i);
 	}
 
-	int index = 0;
-	while (result.size() != n) { //result의 총 개수가 n이 될 때까지 반복
-		int t = num.front(); //큐의 front 사람
-		if (index < k - 1) { //해당 사람이 차례가 아닌 경우
-			num.push(t); //다시 큐에 넣기
-			num.pop(); //front에 있는 사람 삭제
-			index++; //index 증가
-		}
-		else { //해당 사람이 차례인 경우
-			index = 0; //index 초기화
-			result.push_back(t); //결과 벡터에 넣기
+	while (!num.empty()) {
+		int cnt = k - 1;
+		while (cnt--) { //k-1보다 번호가 작은 사람은 큐에서 빼서 다시 뒤로 넣기
+			int t = num.front();
 			num.pop();
+			num.push(t);
 		}
+		result.push_back(num.front()); //k번째 사람은 결과 벡터에 넣기
+		num.pop();
 	}
 
 	return result;
