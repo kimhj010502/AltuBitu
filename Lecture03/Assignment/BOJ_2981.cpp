@@ -14,22 +14,6 @@ int gcd(int a, int b) {
 	return a;
 }
 
-//소수 여부를 담고 있는 벡터 반환 함수
-vector<bool> isPrime(int n) {
-	vector<bool> is_prime(n + 1, true);
-	is_prime[0] = is_prime[1] = false;
-
-	for (int i = 2; i * i <= n; i++) {
-		if (is_prime[i] == true) {
-			for (int j = i * i; j <= n; j += i) {
-				is_prime[j] = false;
-			}
-		}
-	}
-
-	return is_prime;
-}
-
 //m인지의 여부를 담은 벡터 반환 함수
 set<int> findM(vector<int>& num) {
 	//n이 담긴 벡터 num 정렬
