@@ -58,7 +58,7 @@ int main() {
 	cin.tie(NULL); cout.tie(NULL);
 
 	int n = 3;
-	
+
 	vector<vector<int>> jobs(3, vector<int>(2));
 	for (int i = 0; i < 3; i++) {
 		cin >> jobs[i][0] >> jobs[i][1];

@@ -8,7 +8,7 @@ void init(vector<int>& heap, int x, int n, int i) {
 	//주어진 인덱스에 입력받은 x 넣기
 	heap[i] = x;
 
-	//다음 노드가 이전 노드보다 크면 swap
+	//다음 노드가 이전 노드보다 크면 swap (내림차순 정렬)
 	int idx = i;
 	while (idx > 0 && heap[idx] > heap[idx - 1]) {
 		swap(heap[idx], heap[idx - 1]);
@@ -21,7 +21,7 @@ void push(vector<int>& heap, int x, int n) {
 	//힙의 마지막에 입력받은 x 넣기
 	heap[n] = x;
 
-	//다음 노드가 이전 노드보다 크면 swap
+	//다음 노드가 이전 노드보다 크면 swap (내림차순 정렬)
 	int idx = n;
 	while (idx > 0 && heap[idx] > heap[idx - 1]) {
 		swap(heap[idx], heap[idx - 1]);

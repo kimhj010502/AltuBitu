@@ -34,7 +34,7 @@ int main() {
 		//연산
 		//짝수번째 입력: 왼쪽 힙의 개수가 1만큼 크고 가운데수이므로 왼쪽 힙의 최댓값 출력
 		//홀수번째 입력: 양쪽 힙의 개수가 같으므로 그 중 작은 값인 왼쪽 힙의 최댓값 출력
-	
+
 		//양쪽 힙의 사이즈를 같거나 왼쪽 힙이 1만큼 더 크도록 저장
 		if (left_pq.size() > right_pq.size()) {
 			right_pq.push(x);
@@ -46,7 +46,7 @@ int main() {
 		if (!left_pq.empty() && !right_pq.empty()) {
 			balance(left_pq, right_pq);
 		}
-		
+
 		//출력
 		cout << left_pq.top() << "\n";
 	}
