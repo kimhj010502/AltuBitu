@@ -40,12 +40,8 @@ ii solution(vector<int>& ground, int b) {
 	//땅의 최저높이와 최대높이 구함
 	int min_block = 256, max_block = 0;
 	for (int i = 0; i < ground.size(); i++) {
-		if (ground[i] < min_block) {
-			min_block = ground[i];
-		}
-		if (ground[i] > max_block) {
-			max_block = ground[i];
-		}
+		min_block = min(min_block, ground[i]);
+		max_block = max(max_block, ground[i]);
 	}
 
 	//높이를 하나씩 높여가면서 시간 계산
