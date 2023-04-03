@@ -34,6 +34,7 @@ int main() {
 
 	int w, h; //지도의 너비, 높이
 	while (true) {
+		//입력
 		cin >> h >> w;
 		if (w == 0 && h == 0) {
 			break;
@@ -46,6 +47,7 @@ int main() {
 			}
 		}
 
+		//연산
 		int cnt = 0; //섬의 개수
 		queue<ii> land; //탐색해야 할 땅
 		for (int i = 0; i < w; i++) {
@@ -59,6 +61,8 @@ int main() {
 				}
 			}
 		}
+
+		//출력
 		cout << cnt << "\n";
 	}
 
