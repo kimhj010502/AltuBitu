@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 #include <vector>
 #include <queue>
 
@@ -17,7 +17,7 @@ ii location(vector<vector<int>>& board, queue<ii>& index, int color) {
 		int r = index.front().first;
 		int c = index.front().second;
 		index.pop();
-		
+
 		//네 방향으로 탐색
 		for (int i = 0; i < 4; i++) {
 			int nr = r, nc = c;
@@ -109,7 +109,7 @@ int main() {
 			}
 		}
 	}
-	
+
 	//연산 & 출력
 	winColor(board, black, white);
 
