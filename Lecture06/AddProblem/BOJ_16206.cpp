@@ -45,7 +45,7 @@ int countCake(vector<int>& a, int m) {
 			multi_ten = true;
 			cut_cnt += cake_cnt - 1;
 		}
-		
+
 		//cout << "케이크 개수: " << cake_cnt << ", 전체 케이크 개수: " << total_cake << ", 자른 횟수: " << cut_cnt << "\n";
 
 		//자른 횟수가 m인 경우 바로 총 케이크의 개수 반환
@@ -62,7 +62,7 @@ int countCake(vector<int>& a, int m) {
 				return total_cake - (cut_cnt - m);
 			}
 		}
-		
+
 	}
 
 	//자를만큼 잘랐는데 m보다 작은 경우에도 total_cake 반환
@@ -72,7 +72,7 @@ int countCake(vector<int>& a, int m) {
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(NULL); cout.tie(NULL);
-	
+
 	//입력
 	int n, m;
 	cin >> n >> m;

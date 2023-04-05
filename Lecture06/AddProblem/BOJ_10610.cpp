@@ -14,12 +14,12 @@ string solution(string n) {
 	for (int i = 0; i < n.size(); i++) {
 		sum_num += n[i] - '0';
 	}
-	
+
 	//3의 배수가 아니거나, 10의 배수가 아니면 30의 배수가 존재하지 않으므로 -1 출력
 	if (sum_num % 3 != 0 || n[n.size() - 1] != '0') {
 		return "-1";
 	}
-	
+
 	return n;
 }
 
