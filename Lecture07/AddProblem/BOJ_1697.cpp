@@ -52,6 +52,6 @@ int main() {
 
 	//연산 & 출력
 	cout << minTime(n, k);
-	
+
 	return 0;
 }
