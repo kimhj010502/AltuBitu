@@ -3,10 +3,15 @@
 
 using namespace std;
 
+int dr[3] = { -1,-1,0 };
+int dc[3] = { -1,0,-1 };
+
 //왼, 위, 왼쪽위 대각선 중 최솟값 반환
 int getMin(int r, int c, vector<vector<int>>& board) {
-    int min_num = min(board[r - 1][c - 1], board[r - 1][c]);
-    min_num = min(min_num, board[r][c - 1]);
+    int min_num = 10000;
+    for (int i = 0; i < 3; i++) {
+        min_num = min(min_num, board[r + dr[i]][c + dc[i]]);
+    }
     return min_num;
 }
 
