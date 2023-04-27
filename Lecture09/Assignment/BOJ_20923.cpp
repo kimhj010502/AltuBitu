@@ -5,36 +5,32 @@ using namespace std;
 
 //수연이와 도도가 종을 치는 조건이 되는지 확인
 int check(deque<int>& dodo_ground, deque<int>& suyeon_ground) {
-	//두 그라운드 중 비어있는 그라운드가 있는 경우 성립 안됨
-	if (dodo_ground.empty() || suyeon_ground.empty()) {
-		return 0;
-	}
-
-	//두 카드의 합이 5가 되는 경우 수연이가 종을 침
-	if (dodo_ground.front() + suyeon_ground.front() == 5) {
+	//두 그라운드가 비어있지 않고 두 카드의 합이 5가 되는 경우 수연이가 종을 침
+	if (!dodo_ground.empty() && !suyeon_ground.empty() && dodo_ground.front() + suyeon_ground.front() == 5) {
 		return 1;
 	}
+
 	//가장 위의 카드 중 5가 있는 경우 도도가 종을 침
-	else if (dodo_ground.front() == 5 || suyeon_ground.front() == 5) {
+	if ((!dodo_ground.empty() && dodo_ground.front() == 5) || (!suyeon_ground.empty() && suyeon_ground.front() == 5)) {
 		return 2;
 	}
+
+	return 0;
 }
 
 //그라운드에 있는 카드를 자신의 카드 더미로 옮기는 함수
 void moveCard(deque<int>& card, deque<int>& ground1, deque<int>& ground2) {
 	//카드 더미가 합쳐질 때 뒤집어서 가져오므로
 	//그라운드에서 가장 아래에 있는 카드 먼저 추가해야 함
-	
+
 	//상대방 그라운드에 있는 카드 가져오기
 	while (!ground1.empty()) {
-		//cout << "상대방꺼 뺏어오는 중...\n";
 		card.push_back(ground1.back());
 		ground1.pop_back();
 	}
 
 	//자신의 그라운드에 있는 카드 가져오기
 	while (!ground2.empty()) {
-		//cout << "내꺼 가져오는 중...\n";
 		card.push_back(ground2.back());
 		ground2.pop_back();
 	}
@@ -46,25 +42,21 @@ void checkAndMove(deque<int>& dodo_card, deque<int>& suyeon_card, deque<int>& do
 
 	//1) 수연이가 종을 치는 조건이 만족되는 경우
 	if (check_state == 1) {
-		//cout << "!! 수연이가 종 침\n";
 		moveCard(suyeon_card, dodo_ground, suyeon_ground);
 	}
 	//2) 도도가 종을 치는 조건이 만족되는 경우
 	else if (check_state == 2) {
-		//cout << "!! 도도가 종 침\n";
 		moveCard(dodo_card, suyeon_ground, dodo_ground);
 	}
 }
 
 string game(int m, deque<int>& dodo_card, deque<int>& suyeon_card) {
 	//front(): 그라운드 중 가장 위, back(): 그라운드 중 가장 아래
-	deque<int> dodo_ground; 
+	deque<int> dodo_ground;
 	deque<int> suyeon_ground;
 
 	//m번동안 반복
 	for (int i = 0; i < m; i++) {
-		//cout << "\n\n[[ " <<  i << "번째 게임 중 ]]\n";
-
 		//도도 차례
 		if (i % 2 == 0) {
 			//1) 그라운드에 가장 위에 있는 카드 내려놓기
@@ -91,9 +83,6 @@ string game(int m, deque<int>& dodo_card, deque<int>& suyeon_card) {
 
 		//3) 종치는 조건 검사하고 카드 이동
 		checkAndMove(dodo_card, suyeon_card, dodo_ground, suyeon_ground);
-
-		//cout << ">> 도도: " << dodo_card.size() << "개, 수연: " << suyeon_card.size() << "개 남음\n";
-		//cout << ">> 도도: " << dodo_ground.size() << "개, 수연: " << suyeon_ground.size() << "개 남음\n";
 	}
 
 	//더 많은 카드를 가진 사람이 이김
@@ -120,7 +109,7 @@ int main() {
 	deque<int> dodo_card;
 	deque<int> suyeon_card;
 
-	while(n--) {
+	while (n--) {
 		cin >> c1 >> c2; //도도, 수연의 카드
 		dodo_card.push_front(c1);
 		suyeon_card.push_front(c2);
