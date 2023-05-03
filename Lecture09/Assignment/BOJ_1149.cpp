@@ -1,22 +1,21 @@
 ﻿#include <iostream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
+
+const int R = 0, G = 1, B = 2;
 
 int getMinCost(int n, vector<vector<int>>& cost) {
 	vector<vector<int>> dp(n, vector<int>(3));
 	dp[0] = cost[0];
 	for (int i = 1; i < n; i++) {
-		dp[i][0] = min(dp[i - 1][1], dp[i - 1][2]) + cost[i][0];
-		dp[i][1] = min(dp[i - 1][0], dp[i - 1][2]) + cost[i][1];
-		dp[i][2] = min(dp[i - 1][0], dp[i - 1][1]) + cost[i][2];
+		dp[i][R] = min(dp[i - 1][G], dp[i - 1][B]) + cost[i][R];
+		dp[i][G] = min(dp[i - 1][R], dp[i - 1][B]) + cost[i][G];
+		dp[i][B] = min(dp[i - 1][R], dp[i - 1][G]) + cost[i][B];
 	}
 
-	int min_cost = 1000 * 1000;
-	for (int i = 0; i < 3; i++) {
-		min_cost = min(min_cost, dp[n - 1][i]);
-	}
-	return min_cost;
+	return min({ dp[n - 1][R], dp[n - 1][G], dp[n - 1][B] });
 }
 
 int main() {

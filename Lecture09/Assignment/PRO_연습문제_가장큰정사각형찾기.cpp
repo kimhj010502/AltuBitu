@@ -1,19 +1,8 @@
 ﻿#include <iostream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
-
-int dr[3] = { -1,-1,0 };
-int dc[3] = { -1,0,-1 };
-
-//왼, 위, 왼쪽위 대각선 중 최솟값 반환
-int getMin(int r, int c, vector<vector<int>>& board) {
-    int min_num = 10000;
-    for (int i = 0; i < 3; i++) {
-        min_num = min(min_num, board[r + dr[i]][c + dc[i]]);
-    }
-    return min_num;
-}
 
 int solution(vector<vector<int>> board) {
     int answer = 0;
@@ -24,7 +13,8 @@ int solution(vector<vector<int>> board) {
     for (int i = 0; i < r; i++) {
         for (int j = 0; j < c; j++) {
             if (i > 0 && j > 0 && board[i][j] == 1) {
-                board[i][j] = getMin(i, j, board) + 1;
+                //왼, 위, 왼쪽위 대각선 중 최솟값 + 1
+                board[i][j] = min({ board[i - 1][j - 1], board[i - 1][j], board[i][j - 1] }) + 1;
             }
             //answer를 정사각형의 한 변의 길이의 최댓값으로 갱신
             answer = max(answer, board[i][j]);
