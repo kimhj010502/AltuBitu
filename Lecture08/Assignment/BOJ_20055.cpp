@@ -57,7 +57,7 @@ void move() {
 }
 
 //3단계: 로봇 올림
-void put_robot() {
+void putRobot() {
 	if (a[start_idx] > 0) {
 		is_robot[start_idx] = true;
 		a[start_idx]--;
@@ -65,7 +65,7 @@ void put_robot() {
 }
 
 //4단계: 종료 조건 확인
-bool end_check() {
+bool endCheck() {
 	int cnt = 0;
 	for (int i = 1; i <= 2 * n; i++) {
 		if (a[i] == 0) {
@@ -97,8 +97,8 @@ int main() {
 	while (true) {
 		rotate();
 		move();
-		put_robot();
-		if (end_check()) {
+		putRobot();
+		if (endCheck()) {
 			break;
 		}
 		ans++;
