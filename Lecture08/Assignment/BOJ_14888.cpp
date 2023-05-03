@@ -4,23 +4,28 @@
 using namespace std;
 
 int n;
-int max_num = -1000000000, min_num = 1000000000;
+int max_num = -1e9, min_num = 1e9;
 vector<int> num;
 vector<int> op;
+
+const int ADD = 0;
+const int MINUS = 1;
+const int MULTIPLY = 2;
+const int DIVIDE = 3;
 
 //숫자 두개와 연산자를 입력받아 계산하는 함수
 int calculation(int n1, int n2, int op_num) {
 	switch (op_num) {
-		case 0:
+		case ADD:
 			return n1 + n2;
 			break;
-		case 1:
+		case MINUS:
 			return n1 - n2;
 			break;
-		case 2:
+		case MULTIPLY:
 			return n1 * n2;
 			break;
-		case 3:
+		case DIVIDE:
 			return n1 / n2;
 	}
 }
