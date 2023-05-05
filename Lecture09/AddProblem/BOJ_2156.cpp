@@ -26,13 +26,7 @@ int getMax(int n, vector<int>& wine) {
 	for (int i = 3; i < n; i++) {
 		dp[i] = max({ dp[i - 3] + wine[i - 1] + wine[i], dp[i - 2] + wine[i], dp[i - 1] });
 	}
-
-	//최댓값 반환
-	int result = 0;
-	for (int i = 0; i < n; i++) {
-		result = max(result, dp[i]);
-	}
-	return result;
+	return dp[n - 1];
 }
 
 int main() {
