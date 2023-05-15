@@ -44,7 +44,6 @@ int maxSum(int n, int m, int x, int y, vector<vector<int>>& num) {
 					sum_num += num[nx][ny];
 				}
 				else {
-					sum_num = 0;
 					break;
 				}
 			}
@@ -61,7 +60,6 @@ int maxSum(int n, int m, int x, int y, vector<vector<int>>& num) {
 					sum_num += num[nx][ny];
 				}
 				else {
-					sum_num = 0;
 					break;
 				}
 			}
