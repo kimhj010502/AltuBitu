@@ -61,7 +61,11 @@ int main() {
 
 	while (t--) {
 		cin >> w >> k;
+
+		//연산
 		ii result = getLength(w, k);
+
+		//출력
 		if (result.first == -1) {
 			cout << "-1\n";
 		}
