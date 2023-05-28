@@ -8,10 +8,9 @@ const int MAX = 1e6 + 1;
 
 vector<int> getParent(int n, vector<int>& number, queue<int>& q) {
 	vector<int> parent(MAX);
-	parent[number[1]] = number[0];
 
-	int prev = number[0], cur = number[1], p = -1;
-	for (int i = 2; i < n; i++) {
+	int prev = number[0], cur, p;
+	for (int i = 1; i < n; i++) {
 		cur = number[i];
 
 		//연속이 아닌 경우
